@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.numbers {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.time-cat {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.fete {
+  border-radius: 50%;
+}
+
+.button-counter {
+  margin: 30px;
+  border: purple solid 2px;
+  border-radius: 8px;
+}
