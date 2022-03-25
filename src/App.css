@@ -56,3 +56,14 @@
   border: purple solid 2px;
   border-radius: 8px;
 }
+
+.date-input {
+  color: grey;
+  margin-left: 5px;
+ 
+}
+.date-input:focus {
+  color: black;
+ 
+}
+

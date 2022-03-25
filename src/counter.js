@@ -14,6 +14,8 @@ const Counter = () => {
         sec: 36
     })
     const [display, setDisplay] = useState('flex')
+    const [dateInput, setDateInput] = useState('')
+    const [dateEntered, setDateEntered] = useState('12/25/22')
 
      useEffect(() => {
 
@@ -38,7 +40,7 @@ return () => clearInterval(intervalId)
     }
     const now = new Date().getTime();
 
-const countDownPoint = new Date('October 23, 2022').getTime();
+const countDownPoint = new Date(`${dateEntered}`).getTime();
 
 const difference = (countDownPoint - now)
 
@@ -50,8 +52,9 @@ const entierMinutes = Math.floor(difference % (1000 * 60 * 60) / (1000 * 60 ))
 const entierSeconds = Math.floor(difference % (1000 * 60 ) / 1000 )
 
 
-console.log('daysTotal: ', daysTotal )
-console.log('totalDays :',time.totalDays)
+/* console.log('daysTotal: ', daysTotal )
+console.log('totalDays :',time.totalDays) */
+console.log("dateEntered c'est : ", dateEntered)
 
 const getRemainingTime = () => {
 
@@ -59,10 +62,26 @@ const getRemainingTime = () => {
 
  
 }
+const submitForm = e => {
+    e.preventDefault()
+    setDateEntered(dateInput)
+  }
 
 
 return (
     <div>
+
+<form>
+<label> Entrez ici la date de l'évènement <br></br> au format MOIS/JOUR/ANNEE : 
+            <input type="text" id="id-input" name="actor-input"
+            defaultValue="12/25/2022"
+           className='date-input'
+            onChange={(e) => setDateInput(e.target.value)}
+            />
+            </label>
+            </form>
+            <button
+            onClick={submitForm}>Soumettre la date</button>
         <img className='fete'src={Fete} alt='bébé' style={{display: display}}/>
     <div>il reste <span className='numbers'>{time.totalDays} </span> <span className='time-cat'>jour(s) </span>  <span  className='numbers'>{time.hours}</span> <span className='time-cat'> heures</span>, <span className='numbers'>{time.min}</span><span className='time-cat'> minutes </span> et <span className='numbers'>{time.sec}</span>  <span className='time-cat'>secondes</span></div>
     <div>Soit : <span className='numbers'>{time.weeks} </span> <span className='time-cat'>semaines</span>
